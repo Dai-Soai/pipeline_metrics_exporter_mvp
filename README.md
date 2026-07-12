@@ -90,8 +90,33 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M1 — Bootstrap Project**
+Current milestone: **M2 — Export Contract**
 
 Version: `0.1.0`
 
 Status: `ACTIVE / UNLOCKED`
+
+## Export contract
+
+The core contract includes:
+
+- `ExportFormat`
+- `SourceReportType`
+- `ExportRequest`
+- `ExportArtifact`
+- `ExportSummary`
+- `ExportReport`
+
+The contract supports:
+
+- Validation
+- Serialization
+- Deserialization
+- Exporter and report version metadata
+- Multiple requested export formats
+- Generated artifact metadata
+- Artifact checksum metadata
+- Export size aggregation
+- Failure tracking
+- Duplicate path and format detection
+- Summary consistency validation
