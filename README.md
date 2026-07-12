@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M8 — CLI & JSON Export Report**
+Current status: **RELEASED v0.1.0**
 
 Version: `0.1.0`
 
@@ -363,3 +363,242 @@ containing:
 JSON report operations support atomic writes, overwrite protection,
 contract validation, artifact existence checks, byte-size checks, and
 SHA-256 checksum verification.
+
+## Architecture
+
+```text
+Metrics / Health / Trend JSON Report
+                 │
+                 ▼
+    ObservabilityReportLoader
+                 │
+                 ▼
+    LoadedObservabilityReport
+                 │
+                 ▼
+             ExportEngine
+        ┌────────┼─────────┬─────────┐
+        ▼        ▼         ▼         ▼
+       CSV    Markdown    HTML      Excel
+        │        │         │         │
+        └────────┴─────────┴─────────┘
+                 │
+                 ▼
+            ExportReport
+                 │
+                 ▼
+        export_report.json
+```
+
+## Supported source reports
+
+The exporter accepts normalized observability reports produced by:
+
+- Pipeline Metrics Collector
+- Pipeline Health Analyzer
+- Pipeline Health Trend Analyzer
+
+Supported source types:
+
+- `metrics`
+- `health`
+- `trend`
+
+## Supported output formats
+
+| Format | Extension | Primary use |
+|---|---:|---|
+| CSV | `.csv` | Data processing and analysis |
+| Markdown | `.md` | GitHub and operational documentation |
+| HTML | `.html` | Standalone browser reports |
+| Excel | `.xlsx` | Spreadsheet analysis and sharing |
+
+## Installation
+
+Install from a wheel:
+
+```bash
+python -m pip install   dist/pipeline_metrics_exporter-0.1.0-py3-none-any.whl
+```
+
+Editable development installation:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+## CLI quick start
+
+Export all supported formats:
+
+```bash
+pipeline-metrics-exporter export   examples/input/metrics_report.json   --type metrics   --formats csv,markdown,html,excel   --output reports   --report-output reports/export_report.json   --overwrite
+```
+
+Validate the generated export report and artifact integrity:
+
+```bash
+pipeline-metrics-exporter validate   reports/export_report.json   --verify-artifacts   --verify-checksums
+```
+
+Inspect the export report:
+
+```bash
+pipeline-metrics-exporter inspect   reports/export_report.json
+```
+
+Display the installed version:
+
+```bash
+pipeline-metrics-exporter version
+```
+
+## Python API
+
+```python
+from pipeline_metrics_exporter import (
+    ExportEngine,
+    ExportFormat,
+    ExportRequest,
+    SourceReportType,
+)
+
+request = ExportRequest(
+    source_path="metrics_report.json",
+    source_type=SourceReportType.METRICS,
+    formats=(
+        ExportFormat.CSV,
+        ExportFormat.MARKDOWN,
+        ExportFormat.HTML,
+        ExportFormat.EXCEL,
+    ),
+    output_directory="reports",
+    overwrite=True,
+)
+
+report = ExportEngine().execute(request)
+
+print(report.status)
+print(report.summary.generated_count)
+```
+
+## Export report metadata
+
+Each structured export report includes:
+
+- `report_version`
+- `exporter_version`
+- `run_id`
+- `generated_at`
+- `status`
+- original export request
+- export summary
+- generated artifact records
+- per-format errors
+- normalized source metadata
+
+Each generated artifact includes:
+
+- output format
+- absolute file path
+- byte size
+- content type
+- SHA-256 checksum
+- format-specific metadata
+
+## Integrity and safety
+
+The utility provides:
+
+- Source report contract validation
+- Requested source-type enforcement
+- Atomic artifact writes
+- Explicit overwrite protection
+- Per-format failure isolation
+- Artifact type validation
+- Artifact format validation
+- Artifact existence verification
+- Artifact byte-size verification
+- SHA-256 checksum verification
+- Completed, partial, and failed statuses
+
+## Package typing
+
+The distribution includes:
+
+```text
+pipeline_metrics_exporter/py.typed
+```
+
+This marker declares the installed package as a typed package under
+PEP 561. Static type checkers can therefore consume the annotations
+provided directly by the package.
+
+## Project structure
+
+```text
+pipeline_metrics_exporter_mvp/
+├── examples/
+│   ├── input/
+│   └── output/
+├── reports/
+├── src/
+│   └── pipeline_metrics_exporter/
+│       ├── __init__.py
+│       ├── _version.py
+│       ├── cli.py
+│       ├── contract.py
+│       ├── csv_exporter.py
+│       ├── excel_exporter.py
+│       ├── export_engine.py
+│       ├── html_exporter.py
+│       ├── markdown_exporter.py
+│       ├── presentation.py
+│       ├── py.typed
+│       ├── report_io.py
+│       └── report_loader.py
+├── tests/
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── RELEASE_NOTES.md
+├── pyproject.toml
+└── pytest.ini
+```
+
+Generated reports, build products, virtual environments, and cache
+directories are excluded from version control and release source code.
+
+## Release validation
+
+Version `0.1.0` is verified through:
+
+- 101 automated tests
+- Wheel build
+- Source distribution build
+- Wheel metadata inspection
+- Wheel content inspection
+- `py.typed` package-data verification
+- Clean wheel installation
+- Installed package import verification
+- Installed CLI verification
+- Four-format export verification
+- JSON report validation
+- Artifact existence verification
+- Artifact byte-size verification
+- SHA-256 checksum verification
+
+## Distribution artifacts
+
+```text
+pipeline_metrics_exporter-0.1.0-py3-none-any.whl
+pipeline_metrics_exporter-0.1.0.tar.gz
+```
+
+## Status
+
+Utility #29 — Pipeline Metrics Exporter MVP is released as version
+`0.1.0`.
+
+Formal snapshot artifacts and the Utility #29 lock are maintained in
+the dedicated `radar_service_snapshots` repository.

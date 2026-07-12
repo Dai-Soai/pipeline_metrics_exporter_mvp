@@ -3,6 +3,7 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
+license-files = ["LICENSE"]
 name = "pipeline-metrics-exporter"
 version = "0.1.0"
 description = "Export RADAR_SERVICE metrics, health, and trend reports into portable artifact formats."

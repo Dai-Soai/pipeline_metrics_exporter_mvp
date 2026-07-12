@@ -39,3 +39,5 @@ examples/output/*
 # Temporary files
 *.tmp
 *.log
+reports/
+examples/output/
