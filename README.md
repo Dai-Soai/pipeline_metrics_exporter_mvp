@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M2 — Export Contract**
+Current milestone: **M3 — Observability Report Loader**
 
 Version: `0.1.0`
 
@@ -120,3 +120,30 @@ The contract supports:
 - Failure tracking
 - Duplicate path and format detection
 - Summary consistency validation
+
+## Observability report loader
+
+The loader supports JSON artifacts produced by:
+
+- Utility #26 — Pipeline Metrics Collector
+- Utility #27 — Pipeline Health Analyzer
+- Utility #28 — Pipeline Health Trend Analyzer
+
+Capabilities:
+
+- Automatic source report type detection
+- Explicit expected-type enforcement
+- Metrics, health, and trend report loading
+- Single-file loading
+- Multiple-file loading
+- Directory loading
+- Recursive discovery
+- JSON syntax validation
+- Required metadata validation
+- Producer version normalization
+- Exportable section extraction
+- Source path and metadata preservation
+- Duplicate source identity detection
+
+Every supported input is normalized into a
+`LoadedObservabilityReport`.

@@ -25,3 +25,16 @@ All notable changes to this project will be documented in this file.
 - Exporter version metadata field.
 - Artifact checksum and content type metadata.
 - Export summary consistency validation.
+- Unified observability report loader.
+- Loaded observability report contract.
+- Metrics report detection and normalization.
+- Health report detection and normalization.
+- Trend report detection and normalization.
+- Expected source type enforcement.
+- JSON file and directory loading.
+- Recursive artifact discovery.
+- Required source metadata validation.
+- Producer version normalization.
+- Exportable section extraction.
+- Duplicate report identity detection.
+- Example metrics, health, and trend input artifacts.

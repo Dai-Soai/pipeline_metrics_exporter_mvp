@@ -1,0 +1,55 @@
+{
+  "report_version": "1.0",
+  "analyzer_version": "0.1.0",
+  "run_id": "trend-example-001",
+  "generated_at": "2026-07-12T10:00:00Z",
+  "status": "completed",
+  "summary": {
+    "sample_count": 3,
+    "metric_count": 4,
+    "overall_direction": "improving",
+    "improving_count": 4,
+    "stable_count": 0,
+    "degrading_count": 0,
+    "insufficient_data_count": 0
+  },
+  "overview": {
+    "headline": "Pipeline health is improving",
+    "dominant_direction": "improving",
+    "highlighted_metrics": [
+      "health_score",
+      "total_findings"
+    ]
+  },
+  "samples": [
+    {
+      "run_id": "health-run-001",
+      "generated_at": "2026-07-09T10:00:00Z",
+      "health_score": 50.0
+    },
+    {
+      "run_id": "health-run-002",
+      "generated_at": "2026-07-10T10:00:00Z",
+      "health_score": 70.0
+    },
+    {
+      "run_id": "health-run-003",
+      "generated_at": "2026-07-11T10:00:00Z",
+      "health_score": 100.0
+    }
+  ],
+  "metric_trends": [
+    {
+      "metric_name": "health_score",
+      "sample_count": 3,
+      "first_value": 50.0,
+      "current_value": 100.0,
+      "delta": 50.0,
+      "slope": 25.0,
+      "direction": "improving"
+    }
+  ],
+  "source_metadata": {
+    "source_report_count": 3
+  }
+}

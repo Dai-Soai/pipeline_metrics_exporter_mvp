@@ -1,0 +1,31 @@
+{
+  "report_version": "1.0",
+  "analyzer_version": "0.1.0",
+  "run_id": "health-example-001",
+  "generated_at": "2026-07-11T10:00:00Z",
+  "status": "warning",
+  "score": {
+    "value": 70.0,
+    "maximum": 100.0,
+    "percentage": 70.0
+  },
+  "summary": {
+    "total_findings": 3,
+    "warning_count": 3,
+    "critical_count": 0
+  },
+  "overview": {
+    "headline": "Pipeline requires attention",
+    "dominant_severity": "warning"
+  },
+  "findings": [
+    {
+      "code": "runtime.execution-failure-rate",
+      "severity": "warning",
+      "observed": 0.111111
+    }
+  ],
+  "source_metadata": {
+    "collector_version": "0.1.0"
+  }
+}
