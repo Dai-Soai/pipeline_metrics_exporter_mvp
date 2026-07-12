@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M4 — CSV Exporter**
+Current milestone: **M5 — Markdown & HTML Exporters**
 
 Version: `0.1.0`
 
@@ -183,3 +183,34 @@ Generated CSV artifacts include:
 
 The exporter performs atomic writes and rejects accidental overwrites
 unless `overwrite=True` is explicitly enabled.
+
+## Markdown exporter
+
+The Markdown exporter produces GitHub-compatible operational reports.
+
+Features:
+
+- Report metadata table
+- One table per exportable section
+- Nested mapping and array path preservation
+- Source metadata table
+- Markdown table escaping
+- Atomic writes
+- SHA-256 checksums
+- Explicit overwrite protection
+
+## HTML exporter
+
+The HTML exporter produces a standalone browser report.
+
+Features:
+
+- Embedded responsive CSS
+- Report metadata cards
+- One table per exportable section
+- Source metadata table
+- HTML escaping for source values
+- No external runtime assets
+- Atomic writes
+- SHA-256 checksums
+- Explicit overwrite protection

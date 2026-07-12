@@ -51,3 +51,16 @@ All notable changes to this project will be documented in this file.
 - Explicit overwrite protection.
 - CSV artifact SHA-256 checksums.
 - CSV artifact size and row metadata.
+- Shared presentation flattening helpers.
+- GitHub-compatible Markdown report exporter.
+- Standalone HTML report exporter.
+- Report metadata presentation.
+- Section-based Markdown and HTML tables.
+- Nested array path preservation.
+- Markdown table value escaping.
+- HTML source value escaping.
+- Embedded responsive HTML styling.
+- Atomic Markdown artifact writing.
+- Atomic HTML artifact writing.
+- Markdown and HTML SHA-256 checksums.
+- Explicit overwrite protection for presentation artifacts.

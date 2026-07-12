@@ -20,6 +20,18 @@ from pipeline_metrics_exporter.csv_exporter import (
     CSVExporter,
     CSVRow,
 )
+from pipeline_metrics_exporter.markdown_exporter import (
+    MARKDOWN_CONTENT_TYPE,
+    MarkdownExportError,
+    MarkdownExportFileExistsError,
+    MarkdownExporter,
+)
+from pipeline_metrics_exporter.html_exporter import (
+    HTML_CONTENT_TYPE,
+    HTMLExportError,
+    HTMLExportFileExistsError,
+    HTMLExporter,
+)
 from pipeline_metrics_exporter.report_loader import (
     DuplicateObservabilityReportError,
     LoadedObservabilityReport,
@@ -46,6 +58,14 @@ __all__ = [
     "ExportReport",
     "ExportRequest",
     "ExportSummary",
+    "HTML_CONTENT_TYPE",
+    "HTMLExportError",
+    "HTMLExportFileExistsError",
+    "HTMLExporter",
+    "MARKDOWN_CONTENT_TYPE",
+    "MarkdownExportError",
+    "MarkdownExportFileExistsError",
+    "MarkdownExporter",
     "LoadedObservabilityReport",
     "ObservabilityReportFileNotFoundError",
     "ObservabilityReportJSONError",
