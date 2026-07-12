@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M3 — Observability Report Loader**
+Current milestone: **M4 — CSV Exporter**
 
 Version: `0.1.0`
 
@@ -147,3 +147,39 @@ Capabilities:
 
 Every supported input is normalized into a
 `LoadedObservabilityReport`.
+
+## CSV exporter
+
+The CSV exporter converts metrics, health, and trend reports into a
+consistent long-form table.
+
+Columns:
+
+- `source_type`
+- `run_id`
+- `generated_at`
+- `status`
+- `section`
+- `path`
+- `value`
+- `value_type`
+
+Nested mappings and arrays are flattened into paths such as:
+
+- `execution_failed`
+- `findings[0].severity`
+- `samples[0].health_score`
+- `metric_trends[0].direction`
+
+Generated CSV artifacts include:
+
+- Absolute artifact path
+- UTF-8 byte size
+- `text/csv` content type
+- SHA-256 checksum
+- Source report metadata
+- Exported row count
+- Exported section count
+
+The exporter performs atomic writes and rejects accidental overwrites
+unless `overwrite=True` is explicitly enabled.

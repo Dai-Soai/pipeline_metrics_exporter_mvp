@@ -38,3 +38,16 @@ All notable changes to this project will be documented in this file.
 - Exportable section extraction.
 - Duplicate report identity detection.
 - Example metrics, health, and trend input artifacts.
+- Long-form CSV row contract.
+- Metrics report CSV export.
+- Health report CSV export.
+- Trend report CSV export.
+- Nested mapping flattening.
+- Array item flattening.
+- Normalized scalar value types.
+- Atomic CSV artifact writing.
+- Automatic output directory creation.
+- Safe default and custom filenames.
+- Explicit overwrite protection.
+- CSV artifact SHA-256 checksums.
+- CSV artifact size and row metadata.

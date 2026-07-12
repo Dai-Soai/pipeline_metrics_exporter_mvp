@@ -12,6 +12,14 @@ from pipeline_metrics_exporter.contract import (
     ExportSummary,
     SourceReportType,
 )
+from pipeline_metrics_exporter.csv_exporter import (
+    CSV_COLUMNS,
+    CSV_CONTENT_TYPE,
+    CSVExportError,
+    CSVExportFileExistsError,
+    CSVExporter,
+    CSVRow,
+)
 from pipeline_metrics_exporter.report_loader import (
     DuplicateObservabilityReportError,
     LoadedObservabilityReport,
@@ -26,6 +34,12 @@ from pipeline_metrics_exporter.report_loader import (
 __version__ = "0.1.0"
 
 __all__ = [
+    "CSV_COLUMNS",
+    "CSV_CONTENT_TYPE",
+    "CSVExportError",
+    "CSVExportFileExistsError",
+    "CSVExporter",
+    "CSVRow",
     "DuplicateObservabilityReportError",
     "ExportArtifact",
     "ExportFormat",
