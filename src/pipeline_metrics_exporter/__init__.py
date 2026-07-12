@@ -4,6 +4,7 @@ Export RADAR_SERVICE observability reports into portable,
 human-readable, and machine-friendly artifact formats.
 """
 
+from pipeline_metrics_exporter._version import __version__
 from pipeline_metrics_exporter.contract import (
     ExportArtifact,
     ExportFormat,
@@ -34,6 +35,13 @@ from pipeline_metrics_exporter.excel_exporter import (
     ExcelExporter,
     ExcelSheet,
 )
+from pipeline_metrics_exporter.export_engine import (
+    EXPORT_REPORT_VERSION,
+    ExportEngine,
+    ExportEngineError,
+    ExporterProtocol,
+    UnsupportedExportFormatError,
+)
 from pipeline_metrics_exporter.html_exporter import (
     HTML_CONTENT_TYPE,
     HTMLExportError,
@@ -51,7 +59,6 @@ from pipeline_metrics_exporter.report_loader import (
     UnsupportedObservabilityReportError,
 )
 
-__version__ = "0.1.0"
 
 __all__ = [
     "CSV_COLUMNS",
@@ -67,6 +74,11 @@ __all__ = [
     "ExcelExportFileExistsError",
     "ExcelExporter",
     "ExcelSheet",
+    "EXPORT_REPORT_VERSION",
+    "ExportEngine",
+    "ExportEngineError",
+    "ExporterProtocol",
+    "UnsupportedExportFormatError",
     "ExportArtifact",
     "ExportFormat",
     "ExportReport",

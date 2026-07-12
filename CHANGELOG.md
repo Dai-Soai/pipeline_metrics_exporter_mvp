@@ -79,3 +79,19 @@ All notable changes to this project will be documented in this file.
 - Excel artifact SHA-256 checksums.
 - Excel workbook structure inspection.
 - Explicit Excel artifact overwrite protection.
+- Unified multi-format export engine.
+- Default CSV, Markdown, HTML, and Excel exporter registry.
+- Export request execution from source paths.
+- Export request execution from preloaded reports.
+- Source report type enforcement.
+- Per-format exporter failure isolation.
+- Completed, partial, and failed execution statuses.
+- Export artifact type and format validation.
+- Aggregate export summary generation.
+- Source report metadata propagation.
+- Unique export run identifiers.
+- UTC export generation timestamps.
+- Export report version metadata.
+- Configurable exporter registry support.
+- Isolated package version metadata module.
+- Circular import prevention between package exports and the unified export engine.

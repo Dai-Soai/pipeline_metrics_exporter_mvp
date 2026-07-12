@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M6 — Excel Exporter**
+Current milestone: **M7 — Export Engine**
 
 Version: `0.1.0`
 
@@ -249,3 +249,59 @@ Generated Excel artifacts include:
 
 The exporter performs atomic writes and rejects accidental overwrites
 unless `overwrite=True` is explicitly supplied.
+
+## Export engine
+
+`ExportEngine` provides one unified API for all supported exporters.
+
+Execution flow:
+
+```text
+ExportRequest
+      │
+      ▼
+ObservabilityReportLoader
+      │
+      ▼
+LoadedObservabilityReport
+      │
+      ▼
+ExportEngine
+      ├── CSVExporter
+      ├── MarkdownExporter
+      ├── HTMLExporter
+      └── ExcelExporter
+      │
+      ▼
+ExportReport
+```
+
+The engine supports:
+
+- Multi-format export requests
+- Source report type enforcement
+- Already-loaded report execution
+- Configurable exporter registries
+- Per-format error isolation
+- Completed, partial, and failed statuses
+- Artifact type and format validation
+- Aggregate artifact size calculation
+- Source metadata propagation
+- Unique export run identifiers
+- UTC generation timestamps
+- Exporter version metadata
+
+A failure in one exporter does not discard successful artifacts produced
+by other formats.
+
+### Version metadata isolation
+
+Package version metadata is defined in:
+
+```text
+pipeline_metrics_exporter._version
+```
+
+Both the package public API and the export engine consume this isolated
+module. This prevents circular imports while preserving consistent
+`exporter_version` metadata across generated export reports.
