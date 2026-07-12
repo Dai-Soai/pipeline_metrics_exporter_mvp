@@ -48,6 +48,17 @@ from pipeline_metrics_exporter.html_exporter import (
     HTMLExportFileExistsError,
     HTMLExporter,
 )
+from pipeline_metrics_exporter.report_io import (
+    ExportReportFileExistsError,
+    ExportReportIOError,
+    ExportReportJSONError,
+    ExportReportValidationError,
+    format_export_report_inspection,
+    inspect_export_report,
+    load_export_report,
+    validate_export_report_file,
+    write_export_report,
+)
 from pipeline_metrics_exporter.report_loader import (
     DuplicateObservabilityReportError,
     LoadedObservabilityReport,
@@ -82,6 +93,15 @@ __all__ = [
     "ExportArtifact",
     "ExportFormat",
     "ExportReport",
+    "ExportReportFileExistsError",
+    "ExportReportIOError",
+    "ExportReportJSONError",
+    "ExportReportValidationError",
+    "format_export_report_inspection",
+    "inspect_export_report",
+    "load_export_report",
+    "validate_export_report_file",
+    "write_export_report",
     "ExportRequest",
     "ExportSummary",
     "HTML_CONTENT_TYPE",

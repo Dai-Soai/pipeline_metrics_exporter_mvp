@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M7 — Export Engine**
+Current milestone: **M8 — CLI & JSON Export Report**
 
 Version: `0.1.0`
 
@@ -305,3 +305,61 @@ pipeline_metrics_exporter._version
 Both the package public API and the export engine consume this isolated
 module. This prevents circular imports while preserving consistent
 `exporter_version` metadata across generated export reports.
+
+## Command-line interface
+
+Installed command:
+
+```bash
+pipeline-metrics-exporter
+```
+
+### Export
+
+```bash
+pipeline-metrics-exporter export   examples/input/metrics_report.json   --type metrics   --formats csv,markdown,html,excel   --output reports   --report-output reports/export_report.json   --overwrite
+```
+
+### Validate
+
+```bash
+pipeline-metrics-exporter validate   reports/export_report.json   --verify-artifacts   --verify-checksums
+```
+
+### Inspect
+
+```bash
+pipeline-metrics-exporter inspect   reports/export_report.json
+```
+
+Machine-readable inspection:
+
+```bash
+pipeline-metrics-exporter inspect   reports/export_report.json   --json
+```
+
+### Version
+
+```bash
+pipeline-metrics-exporter version
+```
+
+## JSON export report
+
+Every CLI export can generate a structured `export_report.json`
+containing:
+
+- `report_version`
+- `exporter_version`
+- `run_id`
+- `generated_at`
+- `status`
+- original export request
+- export summary
+- generated artifacts
+- per-format errors
+- normalized source metadata
+
+JSON report operations support atomic writes, overwrite protection,
+contract validation, artifact existence checks, byte-size checks, and
+SHA-256 checksum verification.

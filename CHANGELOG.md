@@ -95,3 +95,19 @@ All notable changes to this project will be documented in this file.
 - Configurable exporter registry support.
 - Isolated package version metadata module.
 - Circular import prevention between package exports and the unified export engine.
+- Installed pipeline-metrics-exporter CLI.
+- Export, validate, inspect, and version commands.
+- Multi-format CLI export execution.
+- CLI request metadata arguments.
+- Quiet CLI execution mode.
+- Structured JSON export report serialization.
+- Atomic JSON report writing.
+- JSON report overwrite protection.
+- JSON report loading and deserialization.
+- JSON report contract validation.
+- Generated artifact existence verification.
+- Generated artifact byte-size verification.
+- Generated artifact SHA-256 verification.
+- Human-readable export report inspection.
+- Machine-readable JSON inspection.
+- Status-specific CLI exit codes.

@@ -58,3 +58,6 @@ source = ["pipeline_metrics_exporter"]
 [tool.coverage.report]
 show_missing = true
 skip_covered = false
+
+[project.scripts]
+pipeline-metrics-exporter = "pipeline_metrics_exporter.cli:main"
