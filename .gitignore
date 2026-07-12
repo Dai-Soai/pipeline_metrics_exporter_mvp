@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Generated reports and exports
+reports/*
+!reports/.gitkeep
+
+examples/output/*
+!examples/output/.gitkeep
+
+# Temporary files
+*.tmp
+*.log
