@@ -90,7 +90,7 @@ sub-milestones when needed without restructuring the complete roadmap.
 
 ## Project status
 
-Current milestone: **M5 — Markdown & HTML Exporters**
+Current milestone: **M6 — Excel Exporter**
 
 Version: `0.1.0`
 
@@ -214,3 +214,38 @@ Features:
 - Atomic writes
 - SHA-256 checksums
 - Explicit overwrite protection
+
+## Excel exporter
+
+The Excel exporter produces a formatted `.xlsx` workbook using the
+Office Open XML spreadsheet standard.
+
+Workbook layout:
+
+- `Metadata`
+- One worksheet for each exportable report section
+- `Source Metadata` when source metadata is available
+
+Each data worksheet includes:
+
+- Document title
+- Frozen title and header rows
+- Auto-filter
+- Formatted column headers
+- Wrapped text cells
+- Numeric and boolean cell types
+- Controlled column widths
+- Preserved nested array paths
+
+Generated Excel artifacts include:
+
+- Absolute workbook path
+- Workbook byte size
+- Excel content type
+- SHA-256 checksum
+- Sheet count
+- Sheet names
+- Source report metadata
+
+The exporter performs atomic writes and rejects accidental overwrites
+unless `overwrite=True` is explicitly supplied.

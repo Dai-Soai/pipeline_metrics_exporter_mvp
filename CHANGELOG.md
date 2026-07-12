@@ -64,3 +64,18 @@ All notable changes to this project will be documented in this file.
 - Atomic HTML artifact writing.
 - Markdown and HTML SHA-256 checksums.
 - Explicit overwrite protection for presentation artifacts.
+- Office Open XML Excel workbook exporter.
+- Metadata worksheet generation.
+- Per-section worksheet generation.
+- Source metadata worksheet generation.
+- Valid and unique worksheet name normalization.
+- Nested array path preservation in worksheets.
+- Native numeric and boolean spreadsheet cells.
+- Formatted workbook title and header rows.
+- Frozen title and header panes.
+- Worksheet auto-filter configuration.
+- Controlled worksheet column widths.
+- Atomic Excel workbook writing.
+- Excel artifact SHA-256 checksums.
+- Excel workbook structure inspection.
+- Explicit Excel artifact overwrite protection.

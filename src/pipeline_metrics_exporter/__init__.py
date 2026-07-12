@@ -26,6 +26,14 @@ from pipeline_metrics_exporter.markdown_exporter import (
     MarkdownExportFileExistsError,
     MarkdownExporter,
 )
+from pipeline_metrics_exporter.excel_exporter import (
+    EXCEL_COLUMNS,
+    EXCEL_CONTENT_TYPE,
+    ExcelExportError,
+    ExcelExportFileExistsError,
+    ExcelExporter,
+    ExcelSheet,
+)
 from pipeline_metrics_exporter.html_exporter import (
     HTML_CONTENT_TYPE,
     HTMLExportError,
@@ -53,6 +61,12 @@ __all__ = [
     "CSVExporter",
     "CSVRow",
     "DuplicateObservabilityReportError",
+    "EXCEL_COLUMNS",
+    "EXCEL_CONTENT_TYPE",
+    "ExcelExportError",
+    "ExcelExportFileExistsError",
+    "ExcelExporter",
+    "ExcelSheet",
     "ExportArtifact",
     "ExportFormat",
     "ExportReport",
